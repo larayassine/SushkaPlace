@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:math'; // for pi
+import 'dart:math';
+
+import 'package:sushka_place/Components/Button.dart';
+import 'package:sushka_place/Theme/Colors.dart'; // for pi
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -19,7 +22,6 @@ class IntroPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Background red dots
           ...dots.map((dot) {
             return Positioned(
               left: dot['left'],
@@ -67,14 +69,14 @@ class IntroPage extends StatelessWidget {
                     Text(
                       "Sushi rolled to perfection",
                       style: GoogleFonts.inter(
-                        fontSize: 12,
+                        fontSize: 15,
                         color: Colors.grey[700],
                       ),
                     ),
                     Text(
                       "Just For You.",
                       style: GoogleFonts.inter(
-                        fontSize: 12,
+                        fontSize: 15,
                         letterSpacing: 3,
                         color: Colors.black,
                       ),
@@ -82,12 +84,23 @@ class IntroPage extends StatelessWidget {
 
                   ],
                 ),
-                    const SizedBox(width: 50), // spacing in Row
-                // Text Column
+                    const SizedBox(width: 20), // spacing in Row
+                
               ],
+
               
             ),
-            
+          ),
+                      const SizedBox(height: 20), // spacing below the Row
+            //button at btm
+
+            Positioned(left: 150,
+            top: 600,child: myButton(text: "sign up now",
+            onTap:(){
+              Navigator.pushNamed(context,'/menupage');
+            } , 
+            color: primaryColor,
+            ),
           ),
         ],
       ),
